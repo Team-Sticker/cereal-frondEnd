@@ -1,14 +1,23 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
+import Link from "next/link";
 import { theme } from "styles/theme";
 
 const PageNavigation: NextPage = () => {
   return (
     <PageNav>
-      <NavItem>시 게시판</NavItem>
-      <NavItem>명예의 전당</NavItem>
-      <NavItem>자유 게시판</NavItem>
-      <NavItem>시리얼 그룹</NavItem>
+      <Link href="/poemBoard">
+        <NavItem>시 게시판</NavItem>
+      </Link>
+      <Link href="/best">
+        <NavItem>명예의 전당</NavItem>
+      </Link>
+      <Link href="/board">
+        <NavItem>자유 게시판</NavItem>
+      </Link>
+      <Link href="/group">
+        <NavItem>시리얼 그룹</NavItem>
+      </Link>
     </PageNav>
   );
 };

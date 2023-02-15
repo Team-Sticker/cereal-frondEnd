@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { theme } from "styles/theme";
 
 const AuthButtons: NextPage = () => {
+  const router = useRouter();
+
+  const goLoginPage = () => router.push("/login");
+  const goSignUpPage = () => router.push("/signUp");
+
   return (
     <ButtonWrap>
-      <LoginBtn>로그인</LoginBtn>
-      <SignUpBtn>회원가입</SignUpBtn>
+      <LoginBtn onClick={goLoginPage}>로그인</LoginBtn>
+      <SignUpBtn onClick={goSignUpPage}>회원가입</SignUpBtn>
     </ButtonWrap>
   );
 };

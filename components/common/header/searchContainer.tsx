@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
+import Link from "next/link";
 import { theme } from "styles/theme";
 
 const SearchContainer: NextPage = () => {
   return (
     <SearchWrap>
-      <Logo />
+      <Link href="/">
+        <Logo />
+      </Link>
       <SearchBar>
         <SearchIcon />
         <SearchInput />
