@@ -7,13 +7,20 @@ import SearchContainer from "./searchContainer";
 
 const Header: NextPage = () => {
   return (
-    <HeaderContainer>
-      <SearchContainer />
-      <PageNavigation />
-      <AuthButtons />
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <SearchContainer />
+        <PageNavigation />
+        <AuthButtons />
+      </HeaderContainer>
+      <FakeSizedBox />
+    </>
   );
 };
+
+const FakeSizedBox = styled.div`
+  height: 90px;
+`;
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -26,6 +33,10 @@ const HeaderContainer = styled.header`
   background-color: ${theme.whiteColor};
 
   border-bottom: 1px solid ${theme.lightGrayColor};
+
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 export default Header;
