@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Banner from "components/banner";
+import BoardHead from "components/boardHead";
 
 const BoardList = () => {
   const bannerData = {
@@ -10,6 +11,7 @@ const BoardList = () => {
   return (
     <BoardListPage>
       <Banner {...bannerData} />
+      <BoardHead type="post" />
     </BoardListPage>
   );
 };
