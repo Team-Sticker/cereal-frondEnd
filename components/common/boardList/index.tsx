@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { theme } from "styles/theme";
 
 const tempData = Array(10)
@@ -14,9 +14,49 @@ const tempData = Array(10)
     like: 1000,
   }));
 
+const lastPageNumber = 10;
+
 const BoardList: NextPage = () => {
   const [boardList, setBoardList] = useState(tempData);
   const [pageIndex, setPageIndex] = useState<number>(1);
+  const [pageNumbers, setPageNumbers] = useState<number[]>([]);
+
+  const prevPage = () => {
+    if (pageIndex > 0) setPageIndex((prev) => prev - 1);
+  };
+  const nextPage = () => {
+    if (pageIndex < lastPageNumber) setPageIndex((prev) => prev + 1);
+  };
+
+  const changeShowPageNumbers = () => {
+    if (pageIndex === 1) {
+      const numbers = Array(Math.min(3, lastPageNumber))
+        .fill(0)
+        .map((_, i) => i + 1);
+      setPageNumbers(numbers);
+
+      return null;
+    }
+
+    if (pageIndex === lastPageNumber) {
+      const numbers = Array(Math.min(3, lastPageNumber))
+        .fill(0)
+        .map((_, i) => lastPageNumber - (Math.min(3, lastPageNumber) - i - 1));
+
+      setPageNumbers(numbers);
+      return null;
+    }
+
+    const numbers = Array(3)
+      .fill(0)
+      .map((_, i) => pageIndex - 1 + i);
+
+    setPageNumbers(numbers);
+  };
+
+  useEffect(() => {
+    changeShowPageNumbers();
+  }, [pageIndex]);
 
   return (
     <>
@@ -39,34 +79,23 @@ const BoardList: NextPage = () => {
         ))}
       </BoardListSection>
       <PageController>
-        <PrevPageBtn>
+        <PrevPageBtn onClick={prevPage}>
           <div />
           <p>이전</p>
         </PrevPageBtn>
         <PageNumbers>
-          <PageNumber
-            number={1}
-            pageIndex={pageIndex}
-            onClick={() => setPageIndex(1)}
-          >
-            1
-          </PageNumber>
-          <PageNumber
-            number={2}
-            pageIndex={pageIndex}
-            onClick={() => setPageIndex(2)}
-          >
-            2
-          </PageNumber>
-          <PageNumber
-            number={3}
-            pageIndex={pageIndex}
-            onClick={() => setPageIndex(3)}
-          >
-            3
-          </PageNumber>
+          {pageNumbers.map((number) => (
+            <PageNumber
+              key={number}
+              number={number}
+              pageIndex={pageIndex}
+              onClick={() => setPageIndex(number)}
+            >
+              {number}
+            </PageNumber>
+          ))}
         </PageNumbers>
-        <NextPageBtn>
+        <NextPageBtn onClick={nextPage}>
           <p>다음</p>
           <div />
         </NextPageBtn>
@@ -111,8 +140,10 @@ const PageNumber = styled.div`
 const PrevPageBtn = styled.button`
   width: 84px;
   height: 40px;
+
   border-radius: 20px;
   border: 1px solid ${theme.mainColor};
+
   display: flex;
   align-items: center;
   justify-content: center;
