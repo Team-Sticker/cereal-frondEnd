@@ -1,6 +1,16 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
+import Header from "components/common/header";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <title>cereal</title>
+      </Head>
+      <Header />
+      <Component {...pageProps} />
+    </>
+  );
 }
