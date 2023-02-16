@@ -3,7 +3,7 @@ import Banner from "components/banner";
 import BoardHead from "components/boardHead";
 import PostBoardList from "components/postBoardList";
 
-const BoardList = () => {
+const PostList = () => {
   const bannerData = {
     title: "시리얼 시인들과\n이야기를 나눠보세요",
     description:
@@ -23,4 +23,4 @@ const BoardListPage = styled.main`
   height: fit-content;
 `;
 
-export default BoardList;
+export default PostList;

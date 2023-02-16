@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import BoardList from "components/common/boardList";
 import { NextPage } from "next";
 import { useState } from "react";
 import { theme } from "styles/theme";
@@ -32,6 +33,7 @@ const PostBoardList: NextPage = () => {
           <option>인기순</option>
         </SortSelect>
       </BoardFilter>
+      <BoardList />
     </>
   );
 };
