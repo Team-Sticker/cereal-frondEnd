@@ -39,7 +39,6 @@ const TipBox = styled.div`
   width: 100%;
   height: 75px;
   padding-left: 20px;
-  margin-bottom: 68px;
   border-left: 5px solid ${theme.mainColor};
 
   background-color: ${theme.newGrayColor};

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Banner from "components/banner";
 import BoardHead from "components/boardHead";
+import PostBoardList from "components/postBoardList";
 
 const BoardList = () => {
   const bannerData = {
@@ -12,6 +13,7 @@ const BoardList = () => {
     <BoardListPage>
       <Banner {...bannerData} />
       <BoardHead type="post" />
+      <PostBoardList />
     </BoardListPage>
   );
 };
