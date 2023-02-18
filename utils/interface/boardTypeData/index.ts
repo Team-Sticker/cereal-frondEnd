@@ -1,1 +1,1 @@
-export type boardType = "poem" | "post";
+export type boardType = "poem" | "post" | "writePost";
