@@ -1,9 +1,26 @@
 import styled from "@emotion/styled";
 import BoardHead from "components/boardHead";
 import { NextPage } from "next";
+import { useRef } from "react";
 import { theme } from "styles/theme";
 
 const WritePost: NextPage = () => {
+  const contentRef = useRef<HTMLTextAreaElement>(null);
+
+  const changeTextHeight = () => {
+    if (contentRef && contentRef.current) {
+      contentRef.current.style.height = "auto";
+      contentRef.current.style.height =
+        (contentRef.current.scrollHeight > 200
+          ? contentRef.current.scrollHeight
+          : 200) + "px";
+    }
+  };
+
+  const changeContent = () => {
+    changeTextHeight();
+  };
+
   return (
     <WritePostPage>
       <BoardHead type="writePost" />
@@ -20,7 +37,11 @@ const WritePost: NextPage = () => {
       </InputForm>
       <InputForm>
         <FormTitle>내용</FormTitle>
-        <ContentInput placeholder="내용을 입력해주세요" />
+        <ContentInput
+          placeholder="내용을 입력해주세요"
+          onChange={changeContent}
+          ref={contentRef}
+        />
       </InputForm>
       <SubmitButton>시 등록하기</SubmitButton>
     </WritePostPage>
