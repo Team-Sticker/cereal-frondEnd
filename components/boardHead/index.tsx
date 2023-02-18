@@ -95,7 +95,6 @@ const BoardName = styled.p`
 const BoardHeadSection = styled.section`
   width: 100%;
   height: fit-content;
-  padding: 0 120px;
   margin-bottom: 68px;
 `;
 
