@@ -1,24 +1,24 @@
 import styled from "@emotion/styled";
-import { boardTypeData } from "docs/boardTypeData";
+import { postTypeData } from "docs/postTypeData";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { theme } from "styles/theme";
-import { boardType } from "utils/interface/boardTypeData";
+import { postType } from "utils/interface/postTypeData";
 
 interface props {
-  type: boardType;
+  type: postType;
 }
 
-const BoardHead: NextPage<props> = ({ type }: props) => {
+const PostHead: NextPage<props> = ({ type }: props) => {
   const router = useRouter();
 
-  const goWritePage = () => router.push(boardTypeData[type].writeLink);
+  const goWritePage = () => router.push(postTypeData[type].writeLink);
 
   return (
-    <BoardHeadSection>
-      <BoardNameWrap>
-        <BoardName>{boardTypeData[type].boardName}</BoardName>
-        {boardTypeData[type].writeLink ? (
+    <PostHeadSection>
+      <PostNameWrap>
+        <PostName>{postTypeData[type].postName}</PostName>
+        {postTypeData[type].writeLink ? (
           <WriteButton onClick={goWritePage}>
             <div />
             <p>글 작성하기</p>
@@ -26,12 +26,12 @@ const BoardHead: NextPage<props> = ({ type }: props) => {
         ) : (
           <></>
         )}
-      </BoardNameWrap>
+      </PostNameWrap>
       <TipBox>
         선정성, 폭력성 등을 포함, 부적절하다고 판단되었을 시 통보없이 삭제될 수
         있습니다.
       </TipBox>
-    </BoardHeadSection>
+    </PostHeadSection>
   );
 };
 
@@ -78,7 +78,7 @@ const WriteButton = styled.button`
   }
 `;
 
-const BoardNameWrap = styled.div`
+const PostNameWrap = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -87,15 +87,15 @@ const BoardNameWrap = styled.div`
   margin-bottom: 38px;
 `;
 
-const BoardName = styled.p`
+const PostName = styled.p`
   font-size: 28px;
   font-weight: 700;
 `;
 
-const BoardHeadSection = styled.section`
+const PostHeadSection = styled.section`
   width: 100%;
   height: fit-content;
   margin-bottom: 68px;
 `;
 
-export default BoardHead;
+export default PostHead;

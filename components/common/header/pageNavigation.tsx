@@ -6,13 +6,13 @@ import { theme } from "styles/theme";
 const PageNavigation: NextPage = () => {
   return (
     <PageNav>
-      <Link href="/poemBoard">
+      <Link href="/poem">
         <NavItem>시 게시판</NavItem>
       </Link>
       <Link href="/best">
         <NavItem>명예의 전당</NavItem>
       </Link>
-      <Link href="/board">
+      <Link href="/forum">
         <NavItem>자유 게시판</NavItem>
       </Link>
       <Link href="/group">

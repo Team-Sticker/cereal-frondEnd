@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import BoardHead from "components/boardHead";
+import PostHead from "components/postHead";
 import { NextPage } from "next";
 import { useRef } from "react";
 import { theme } from "styles/theme";
@@ -23,7 +23,7 @@ const WritePost: NextPage = () => {
 
   return (
     <WritePostPage>
-      <BoardHead type="writePost" />
+      <PostHead type="writePost" />
       <Tip>
         <TipIcon>
           <div />
