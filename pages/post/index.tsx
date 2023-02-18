@@ -21,6 +21,7 @@ const PostList = () => {
 const BoardListPage = styled.main`
   width: 100%;
   height: fit-content;
+  padding: 0 120px;
 `;
 
 export default PostList;

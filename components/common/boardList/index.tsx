@@ -263,7 +263,6 @@ const BoardRow = styled.div`
 const BoardListSection = styled.section`
   width: 100%;
   height: fit-content;
-  padding: 0 120px;
 `;
 
 export default BoardList;

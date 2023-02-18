@@ -92,8 +92,6 @@ const BoardFilter = styled.div`
   width: 100%;
   height: fit-content;
 
-  padding: 0 120px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;

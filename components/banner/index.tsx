@@ -31,7 +31,7 @@ const BannerContainer = styled.section`
   width: auto;
   aspect-ratio: 1160/400;
 
-  margin-left: 120px;
+  margin-right: -120px;
   margin-bottom: 110px;
 
   background-image: url("/img/banner/bannberImg.png");
