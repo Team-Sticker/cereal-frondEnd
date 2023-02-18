@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import Banner from "components/banner";
-import BoardHead from "components/boardHead";
-import PostBoardList from "components/postBoardList";
+import PostHead from "components/postHead";
+import PostBoardList from "components/postList";
 
-const PostList = () => {
+const Forum = () => {
   const bannerData = {
     title: "시리얼 시인들과\n이야기를 나눠보세요",
     description:
@@ -12,7 +12,7 @@ const PostList = () => {
   return (
     <BoardListPage>
       <Banner {...bannerData} />
-      <BoardHead type="post" />
+      <PostHead type="post" />
       <PostBoardList />
     </BoardListPage>
   );
@@ -24,4 +24,4 @@ const BoardListPage = styled.main`
   padding: 0 120px;
 `;
 
-export default PostList;
+export default Forum;

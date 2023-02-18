@@ -6,11 +6,12 @@ import { useState } from "react";
 import { theme } from "styles/theme";
 
 type categoryType = "question" | "communication";
-const PostBoardList: NextPage = () => {
+
+const PostList: NextPage = () => {
   const [selected, setSelected] = useState<categoryType>("communication");
   return (
     <>
-      <BoardFilter>
+      <PostFilter>
         <CategoryWrap>
           <Category
             type="communication"
@@ -32,7 +33,7 @@ const PostBoardList: NextPage = () => {
           <option>최신순</option>
           <option>인기순</option>
         </SortSelect>
-      </BoardFilter>
+      </PostFilter>
       <BoardList />
     </>
   );
@@ -88,7 +89,7 @@ const CategoryWrap = styled.div`
   display: flex;
 `;
 
-const BoardFilter = styled.div`
+const PostFilter = styled.div`
   width: 100%;
   height: fit-content;
 
@@ -97,4 +98,4 @@ const BoardFilter = styled.div`
   align-items: center;
 `;
 
-export default PostBoardList;
+export default PostList;
